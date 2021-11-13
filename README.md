@@ -6,6 +6,6 @@ sudo apt-get install --reinstall build-essential
 
 Compile and run:
 ```
-c++ main.cpp
+c++ -std=c++17 ./src/main/cpp/main.cpp
 ./a.out
 ```

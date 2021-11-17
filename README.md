@@ -10,5 +10,6 @@ Compile and run with profiler:
 c++ -std=c++17 ./src/main/cpp/RemoveLinkedListElements.cpp -o solution.out
 c++ -std=c++17 ./src/main/cpp/RomanToInteger.cpp -o solution.out
 c++ -std=c++17 ./src/main/cpp/LemonadeChange.cpp -o solution.out
+c++ -std=c++17 ./src/main/cpp/InterchangeableRectangles.cpp -o solution.out
 valgrind ./solution.out
 ```

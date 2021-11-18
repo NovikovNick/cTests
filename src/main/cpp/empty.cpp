@@ -1,27 +1,70 @@
 #include <iostream>
 #include <bitset>
 
-uint64_t convert(uint32_t a, uint32_t b) {
-    return (uint64_t) a << 32 | b & 0xFFFFFFFFL;
-}
+struct Node {
+    uint64_t hash = 0;
+    uint32_t counter = 0;
+    Node *next = nullptr;
+};
 
-std::pair<uint32_t, uint32_t> convert(uint64_t c) {
-    return {(uint32_t) (c >> 32), (uint32_t) c};
-}
+int64_t resolveCollision(uint64_t key, Node *node) {
 
+    if (node->hash == key) {
+        return node->counter++;
+    }
+
+    while (node->next != nullptr) {
+        node = node->next;
+        if (node->hash == key) {
+            return node->counter++;
+        }
+    }
+
+    Node *newOne = new Node;
+    newOne->hash = key;
+    node->next = newOne;
+
+    return newOne->counter++;
+}
 
 int main() {
-    uint32_t a = 4;
-    uint32_t b = 100000;
-    uint64_t c = convert(a, b);
-    std::pair<uint32_t, uint32_t> pair = convert(c);
 
-    std::cout << std::bitset<32>(a).to_string() << std::bitset<32>(b).to_string()  << std::endl;
-    std::cout << std::bitset<64>(c).to_string() << std::endl;
-    std::cout << std::bitset<32>(pair.first).to_string() << std::bitset<32>(pair.second).to_string()  << std::endl;
-    std::cout << pair.first << '\t' <<  pair.second  << std::endl;
+    int n;
+    std::cout << "bucket size = ";
+    std::cin >> n;
 
-    return 0;
+    long long res = 0;
+    Node *arr = new Node[n];
+
+    uint64_t ratios[] = {1, 1, 1, 1};
+
+    for (int i = 0; i < 4; i++) {
+
+        uint64_t ratio = ratios[i];
+
+        uint64_t i1 = ratio % n;
+        Node *node = &arr[i1];
+
+        if (node->hash == 0) {
+            node->hash = ratio;
+            node->counter++;
+        } else {
+            res += resolveCollision(ratio, node);
+        }
+    }
+
+    for (int i = 0; i < n; ++i) {
+        Node *node = &arr[i];
+        do {
+            std::cout << std::to_string(node->hash) << " - ";
+            node = node->next;
+        } while (node != nullptr);
+        std::cout << std::endl;
+    }
+
+    std::cout << "Result is " << res;
+
+    delete arr;
 }
 
 /* SOLUTION */

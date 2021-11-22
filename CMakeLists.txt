@@ -7,4 +7,5 @@ add_executable(removeLinkedListElements src/main/cpp/RemoveLinkedListElements.cp
 add_executable(romanToInteger src/main/cpp/RomanToInteger.cpp)
 add_executable(lemonadeChange src/main/cpp/LemonadeChange.cpp)
 add_executable(interchangeableRectangles src/main/cpp/InterchangeableRectangles.cpp)
+add_executable(countingBits src/main/cpp/CountingBits.cpp)
 add_executable(empty src/main/cpp/empty.cpp)

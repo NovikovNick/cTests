@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(test)
-find_package(OpenGL REQUIRED)
+project(test VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -11,12 +10,3 @@ add_executable(interchangeableRectangles src/main/cpp/InterchangeableRectangles.
 add_executable(countingBits src/main/cpp/CountingBits.cpp)
 add_executable(maximumValueAfterInsertion src/main/cpp/MaximumValueAfterInsertion.cpp)
 add_executable(empty src/main/cpp/empty.cpp)
-
-include_directories(
-        external_dependencies/glfw/include
-        external_dependencies/glew
-)
-
-add_executable(graphic src/main/cpp/graphic/graphic_lesson_1.cpp)
-add_subdirectory(external_dependencies/glfw)
-target_link_libraries(graphic glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARY})

@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
-project(test VERSION 0.1.0)
+project(Test VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 17)
+
+configure_file(src/main/cpp/config/TestConfig.h.in src/main/cpp/config/TestConfig.h)
 
 add_executable(removeLinkedListElements src/main/cpp/RemoveLinkedListElements.cpp)
 add_executable(romanToInteger src/main/cpp/RomanToInteger.cpp)
@@ -10,3 +12,7 @@ add_executable(interchangeableRectangles src/main/cpp/InterchangeableRectangles.
 add_executable(countingBits src/main/cpp/CountingBits.cpp)
 add_executable(maximumValueAfterInsertion src/main/cpp/MaximumValueAfterInsertion.cpp)
 add_executable(empty src/main/cpp/empty.cpp)
+
+target_include_directories(empty PUBLIC
+        "${PROJECT_BINARY_DIR}"
+        )

@@ -1,16 +1,14 @@
 #include <iostream>
 
+#include "src/main/cpp/config/TestConfig.h"
 
-int main() {
+int main(int argc, char *argv[]) {
 
-    stdin;
+    std::cout << "Version "
+              << Test_VERSION_MAJOR << "."
+              << Test_VERSION_MINOR << "."
+              << Test_VERSION_PATCH << std::endl;
 
-
-    int32_t size = 1000000;
-    int32_t arr[size];
-    for (int32_t i = 0; i < size; ++i) {
-        arr[i] = i;
-    }
     return 0;
 }
 

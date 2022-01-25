@@ -9,6 +9,7 @@ add_executable(romanToInteger src/main/cpp/RomanToInteger.cpp)
 add_executable(lemonadeChange src/main/cpp/LemonadeChange.cpp)
 add_executable(interchangeableRectangles src/main/cpp/InterchangeableRectangles.cpp)
 add_executable(countingBits src/main/cpp/CountingBits.cpp)
+add_executable(maximumValueAfterInsertion src/main/cpp/MaximumValueAfterInsertion.cpp)
 add_executable(empty src/main/cpp/empty.cpp)
 
 include_directories(
